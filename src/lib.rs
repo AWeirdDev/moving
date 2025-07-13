@@ -58,7 +58,7 @@ use thiserror::Error;
 
 #[derive(Debug, Error)]
 pub enum MovingArrayError {
-    #[error("Expected length & capacity {expected}, got {got}")] LengthUnmatch {
+    #[error("Expected length {expected}, got {got}")] LengthUnmatch {
         expected: usize,
         got: usize,
     },
@@ -75,7 +75,7 @@ pub enum MovingArrayError {
 /// assert_eq!(arr, [0, 1, 2, 3, 4]);
 /// ```
 pub fn move_vec_to_array<T, const N: usize>(mut vec: Vec<T>) -> Result<[T; N], MovingArrayError> {
-    if vec.len() != N || vec.capacity() != N {
+    if vec.len() != N {
         return Err(MovingArrayError::LengthUnmatch { expected: N, got: vec.len() });
     }
 
@@ -91,7 +91,7 @@ pub struct MovableArray<T, const N: usize>([Option<T>; N]);
 
 impl<T, const N: usize> MovableArray<T, N> {
     pub fn from_vec(vec: Vec<T>) -> Result<Self, MovingArrayError> {
-        if vec.len() != N || vec.capacity() != N {
+        if vec.len() != N {
             return Err(MovingArrayError::LengthUnmatch { expected: N, got: vec.len() });
         }
 
