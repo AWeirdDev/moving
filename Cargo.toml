@@ -1,0 +1,15 @@
+[package]
+name = "moving"
+description = "Make elements of an array or a vector movable."
+authors = ["AWeirdDev <awdjared@email.com>"]
+version = "0.1.0"
+license = "MIT OR Apache-2.0"
+readme = "README.md"
+repository = "https://github.com/AWeirdDev/moving"
+edition = "2024"
+
+[features]
+default = []
+
+[dependencies]
+thiserror = "2.0.12"
