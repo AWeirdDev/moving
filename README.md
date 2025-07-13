@@ -19,10 +19,10 @@ assert_eq!(arr, [0, 1, 2, 3, 4]);
 To make elements of an array or a vector movable, while the size is unknown, use `movable`:
 ```rust
 use moving::{ MovableVec, movable };
-!
+
 let v = vec![0, 1, 2, 3, 4];  // 5 items
 let arr = [0, 1, 2, 3, 4];
-!
+
 let mvv: MovableVec<i32> = movable(v);
 let mvv_arr: MovableVec<i32> = movable(arr);
 ```
